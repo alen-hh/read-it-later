@@ -1,24 +1,89 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# Read It Later
 
-## Getting Started
+A lightweight and elegant Chrome extension that helps you save web pages for later reading. Built with modern technologies and a clean user interface.
 
-First, run the development server:
+## 📖 Overview
 
+**Read It Later** is a Chrome side panel extension that allows you to bookmark and manage web pages you want to read later. With a simple click, save any page to your reading list and access it anytime from the convenient side panel.
+
+## ✨ Features
+
+- **📌 Quick Save**: Add the current page to your reading list with one click
+- **🎨 Beautiful UI**: Modern, clean interface built with React and Tailwind CSS
+- **🔍 Smart Management**: 
+  - Prevents duplicate URLs
+  - Shows creation date for each saved page
+  - Maximum capacity of 100 items
+- **⚡ Fast Access**: Open saved pages in new tabs instantly
+- **🗑️ Easy Cleanup**: Remove items from your list with a simple click
+- **💾 Persistent Storage**: All your saved pages are stored locally using Chrome's storage API
+- **📱 Side Panel**: Non-intrusive side panel that doesn't disrupt your browsing
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Plasmo 0.90.5](https://docs.plasmo.com/) - Modern Chrome extension framework
+- **UI**: React 18.2 with TypeScript 5.3
+- **Styling**: Tailwind CSS 3.4.1 (with `plasmo-` prefix)
+- **Icons**: [Heroicons](https://heroicons.com) - Beautiful hand-crafted SVG icons
+- **Manifest**: Chrome Extension Manifest V3
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- pnpm (recommended) or npm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd read-it-later
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+# or
+npm install
+```
+
+### Development
+
+1. Start the development server:
 ```bash
 pnpm dev
 # or
 npm run dev
 ```
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+2. Load the extension in Chrome:
+   - Open Chrome and navigate to `chrome://extensions/`
+   - Enable "Developer mode" (toggle in the top-right corner)
+   - Click "Load unpacked"
+   - Select the `build/chrome-mv3-dev` directory
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+3. The extension will auto-reload as you make changes to the code.
 
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
+### Project Structure
 
-## Making production build
+```
+read-it-later/
+├── src/
+│   ├── sidepanel.tsx      # Main side panel UI component
+│   ├── background.ts      # Background service worker
+│   ├── content.ts         # Content script configuration
+│   └── style.css          # Global styles
+├── package.json           # Dependencies and manifest configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript configuration
+└── postcss.config.js      # PostCSS configuration
+```
 
-Run the following:
+## 📦 Building for Production
+
+Create a production build:
 
 ```bash
 pnpm build
@@ -26,8 +91,71 @@ pnpm build
 npm run build
 ```
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
+This generates an optimized build in the `build/chrome-mv3-prod` directory, ready for distribution.
 
-## Submit to the webstores
+### Creating a Distribution Package
 
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+```bash
+pnpm package
+# or
+npm run package
+```
+
+This creates a `.zip` file ready to be uploaded to the Chrome Web Store.
+
+## 🎯 Usage
+
+1. **Add a Page**: 
+   - Navigate to any webpage you want to save
+   - Click the extension icon in the toolbar
+   - Click "Add Current Page" in the side panel
+
+2. **View Saved Pages**:
+   - Click the extension icon to open the side panel
+   - Your reading list will appear with all saved pages
+
+3. **Open a Saved Page**:
+   - Click on the page title to open it in a new tab
+
+4. **Remove a Page**:
+   - Click the trash icon next to any saved page
+
+## 🔒 Permissions
+
+The extension requires the following permissions:
+
+- **sidePanel**: To display the reading list in the browser's side panel
+- **storage**: To save your reading list locally
+- **activeTab**: To get information about the current page
+- **tabs**: To open saved pages in new tabs
+- **host_permissions** (`https://*/*`): To access page metadata
+
+## 🌟 Features in Detail
+
+### Duplicate Prevention
+The extension automatically checks if a URL is already in your list before adding it, preventing duplicate entries.
+
+### Maximum Capacity
+To ensure optimal performance, the extension limits your reading list to 100 items. You'll be prompted to remove items before adding new ones if you reach this limit.
+
+### Data Persistence
+All your saved pages are stored using Chrome's local storage API, ensuring your data persists across browser sessions and is private to your device.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 👨‍💻 Author
+
+**Alen Hu** - [huhaoyue0220@126.com](mailto:huhaoyue0220@126.com)
+
+## 📚 Resources
+
+- [Plasmo Documentation](https://docs.plasmo.com/)
+- [Chrome Extension Documentation](https://developer.chrome.com/docs/extensions/)
+- [React Documentation](https://react.dev/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)

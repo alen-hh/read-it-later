@@ -2,7 +2,7 @@
   "name": "read-it-later",
   "displayName": "Read it later",
   "version": "0.0.1",
-  "description": "Put the page on the read-it-later list, so we can read it later.",
+  "description": "A lightweight and elegant Chrome extension that helps you save web pages for later reading. Built with modern technologies and a clean user interface.",
   "author": "Alen Hu <huhaoyue0220@126.com>",
   "scripts": {
     "dev": "plasmo dev",
@@ -32,7 +32,9 @@
     ],
     "permissions": [
       "sidePanel",
-      "storage"
+      "storage",
+      "activeTab",
+      "tabs"
     ],
     "action": {}
   }
