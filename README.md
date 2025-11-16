@@ -1,6 +1,6 @@
 # Read It Later
 
-A lightweight and elegant Chrome extension that helps you save web pages for later reading. Built with modern technologies and a clean user interface.
+Easily save web pages to read later with this modern Chrome extension featuring a clean, user-friendly side panel.
 
 ## 📖 Overview
 

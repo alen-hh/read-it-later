@@ -2,7 +2,7 @@
   "name": "read-it-later",
   "displayName": "Read it later",
   "version": "0.0.1",
-  "description": "A lightweight and elegant Chrome extension that helps you save web pages for later reading. Built with modern technologies and a clean user interface.",
+  "description": "Easily save web pages to read later with this modern Chrome extension featuring a clean, user-friendly side panel.",
   "author": "Alen Hu <huhaoyue0220@126.com>",
   "scripts": {
     "dev": "plasmo dev",
